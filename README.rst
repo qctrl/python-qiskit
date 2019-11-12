@@ -2,7 +2,7 @@
 Q-CTRL Qiskit Adaptor
 =====================
 
-The aim of the Q-CTRL Qiskit Adaptor package is to provide export functions allowing
+The aim of the Q-CTRL Qiskit Adapter package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
 open literature and defined in Q-CTRL Open Controls on IBM Quantum hardware.
 
@@ -21,7 +21,7 @@ Table of Contents
 Installation
 ------------
 
-Q-CTRL Qiskit Adaptor can be install through ``pip`` or from source. We recommend
+Q-CTRL Qiskit Adaptor can be installed through ``pip`` or from source. We recommend
 the ``pip`` distribution to get the most recent stable release. If you want the
 latest features then install from source.
 
