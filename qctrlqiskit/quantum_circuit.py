@@ -94,7 +94,7 @@ def convert_dds_to_qiskit_quantum_circuit(
     the real-circuit is :math:`gate\\_time \\times number\\_of\\_identity\\_gates +
     pulse\\_gate\\_time \\times number\\_of\\_pulses`.
 
-    Q-CTRL Open Controls support operation resulting in rotation around at most one axis at
+    Q-CTRL Qiskit Adapter supports operation resulting in rotation around at most one axis at
     any offset.
     """
 
