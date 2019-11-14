@@ -16,6 +16,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
+        ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}
         ./ci docker run asia.gcr.io/q-ctrl-api-development/python-37 /scripts/housekeeping.sh
     - name: Publish publicly
       env:
@@ -23,7 +24,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
-        ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}
         ./ci docker run asia.gcr.io/q-ctrl-api-development/python-37 /scripts/publish-release-publicly.sh
     - name: Publish internally
       env:
