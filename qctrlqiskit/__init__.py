@@ -18,7 +18,7 @@ qctrlqiskit
 ===========
 """
 
-__version__ = "0.0.2rc3"
+__version__ = "0.0.2rc4"
 
 from .quantum_circuit import convert_dds_to_qiskit_quantum_circuit
 
