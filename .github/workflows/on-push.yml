@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - '**'
+    paths-ignore:       # Don't trigger on files that are updated by the CI
+    - 'pyproject.toml'  # Note changes to poetry.lock will still build
+    - 'setup.py'
+    - 'README.rst'
 
 jobs:
 
