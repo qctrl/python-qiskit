@@ -24,7 +24,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='qctrl-qiskit',
-    version='0.0.2rc5',
+    version='0.0.2',
     description='Q-CTRL Qiskit Adapter',
     python_requires='<3.8,>=3.6.4',
     project_urls={'repository': 'https://github.com/qctrl/python-qiskit'},
