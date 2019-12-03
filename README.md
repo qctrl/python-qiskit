@@ -1,6 +1,6 @@
-# Q-CTRL Qiskit Adaptor
+# Q-CTRL Qiskit Adapter
 
-The aim of the Q-CTRL Qiskit Adaptor package is to provide export functions allowing
+The aim of the Q-CTRL Qiskit Adapter package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
 open literature and defined in Q-CTRL Open Controls on IBM Quantum hardware.
 
@@ -17,13 +17,13 @@ Anyone interested in quantum control is welcome to contribute to this project.
 
 ## Installation
 
-Q-CTRL Qiskit Adaptor can be installed through `pip` or from source. We recommend
+Q-CTRL Qiskit Adapter can be installed through `pip` or from source. We recommend
 the `pip` distribution to get the most recent stable release. If you want the
 latest features then install from source.
 
 ### Requirements
 
-To use Q-CTRL Qiskit Adaptor you will need an installation of Python. We
+To use Q-CTRL Qiskit Adapter you will need an installation of Python. We
 recommend using the [Anaconda](https://www.anaconda.com/) distribution of
 Python. Anaconda includes standard numerical and scientific Python packages
 which are optimally compiled for your machine. Follow the [Anaconda
@@ -37,7 +37,7 @@ jupyter notebook editor](https://jupyter.org/install) on its own.
 
 ### Using PyPi
 
-Use `pip` to install the latest version of Q-CTRL Qiskit Adaptor.
+Use `pip` to install the latest version of Q-CTRL Qiskit Adapter.
 
 ```shell
 pip install qctrl-qiskit
