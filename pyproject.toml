@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qctrl-qiskit"
-version = "0.0.2"
+version = "0.0.3"
 description = "Q-CTRL Qiskit Adapter"
 license = "Apache-2.0"
 authors = ["Q-CTRL <support@q-ctrl.com>"]
