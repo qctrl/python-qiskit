@@ -36,6 +36,6 @@ setup(
     packages=['qctrlqiskit'],
     package_dir={"": "."},
     package_data={},
-    install_requires=['numpy==1.*,>=1.16.0', 'qctrl-open-controls==4.*,>=4.0.0', 'qiskit-ibmq-provider==0.*,>=0.3.3', 'qiskit-terra==0.*,>=0.10.0', 'scipy==1.*,>=1.3.0', 'toml==0.*,>=0.10.0'],
+    install_requires=['numpy==1.*,>=1.16.0', 'qctrl-open-controls==4.*,>=4.0.0', 'qiskit-ibmq-provider==0.*,>=0.3.3', 'qiskit-terra==0.*,>=0.11.0', 'scipy==1.*,>=1.3.0', 'toml==0.*,>=0.10.0'],
     extras_require={"dev": ["pylama", "pylint", "pylint-runner", "pytest", "sphinx==2.*,>=2.2.0"]},
 )
