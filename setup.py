@@ -26,7 +26,7 @@ setup(
     name='qctrl-qiskit',
     version='0.0.3',
     description='Q-CTRL Qiskit Adapter',
-    python_requires='<3.8,>=3.6.4',
+    python_requires='<3.9,>=3.6.4',
     project_urls={"repository": "https://github.com/qctrl/python-qiskit"},
     author='Q-CTRL',
     author_email='support@q-ctrl.com',
@@ -36,6 +36,6 @@ setup(
     packages=['qctrlqiskit'],
     package_dir={"": "."},
     package_data={},
-    install_requires=['numpy==1.*,>=1.16.0', 'qctrl-open-controls==3.*,>=3.0.0', 'qiskit-ibmq-provider==0.*,>=0.3.3', 'qiskit-terra==0.*,>=0.10.0', 'scipy==1.*,>=1.3.0', 'toml==0.*,>=0.10.0'],
+    install_requires=['numpy==1.*,>=1.16.0', 'qctrl-open-controls==4.*,>=4.0.0', 'qiskit-ibmq-provider==0.*,>=0.3.3', 'qiskit-terra==0.*,>=0.10.0', 'scipy==1.*,>=1.3.0', 'toml==0.*,>=0.10.0'],
     extras_require={"dev": ["pylama", "pylint", "pylint-runner", "pytest", "sphinx==2.*,>=2.2.0"]},
 )
