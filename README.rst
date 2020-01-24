@@ -2,6 +2,17 @@
 Q-CTRL Qiskit Adapter
 =====================
 
+
+.. image:: https://github.com/qctrl/python-qiskit/workflows/Push%20workflow/badge.svg
+   :target: https://github.com/qctrl/python-qiskit/actions?query=workflow%3A"Push+workflow"
+   :alt: Actions Status
+
+
+.. image:: https://github.com/qctrl/python-qiskit/workflows/Release%20workflow/badge.svg
+   :target: https://github.com/qctrl/python-qiskit/actions?query=workflow%3A"Release+workflow"
+   :alt: Actions Status
+
+
 The aim of the Q-CTRL Qiskit Adapter package is to provide export functions allowing
 users to deploy established error-robust quantum control protocols from the
 open literature and defined in Q-CTRL Open Controls on IBM Quantum hardware.
