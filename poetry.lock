@@ -162,7 +162,7 @@ marker = "python_version < \"3.8\""
 name = "importlib-metadata"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-version = "1.4.0"
+version = "1.5.0"
 
 [package.dependencies]
 zipp = ">=0.5"
@@ -190,8 +190,8 @@ category = "dev"
 description = "A very fast and expressive template engine."
 name = "jinja2"
 optional = false
-python-versions = "*"
-version = "2.10.3"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "2.11.1"
 
 [package.dependencies]
 MarkupSafe = ">=0.23"
@@ -243,12 +243,12 @@ description = "A lightweight library for converting complex datatypes to and fro
 name = "marshmallow"
 optional = false
 python-versions = ">=3.5"
-version = "3.3.0"
+version = "3.4.0"
 
 [package.extras]
-dev = ["pytest", "pytz", "simplejson", "mypy (0.750)", "flake8 (3.7.9)", "flake8-bugbear (19.8.0)", "pre-commit (>=1.20,<2.0)", "tox"]
-docs = ["sphinx (2.2.2)", "sphinx-issues (1.2.0)", "alabaster (0.7.12)", "sphinx-version-warning (1.1.2)"]
-lint = ["mypy (0.750)", "flake8 (3.7.9)", "flake8-bugbear (19.8.0)", "pre-commit (>=1.20,<2.0)"]
+dev = ["pytest", "pytz", "simplejson", "mypy (0.761)", "flake8 (3.7.9)", "flake8-bugbear (20.1.3)", "pre-commit (>=1.20,<3.0)", "tox"]
+docs = ["sphinx (2.3.1)", "sphinx-issues (1.2.0)", "alabaster (0.7.12)", "sphinx-version-warning (1.1.2)"]
+lint = ["mypy (0.761)", "flake8 (3.7.9)", "flake8-bugbear (20.1.3)", "pre-commit (>=1.20,<3.0)"]
 tests = ["pytest", "pytz", "simplejson"]
 
 [[package]]
@@ -256,12 +256,11 @@ category = "main"
 description = "An unofficial extension to Marshmallow to allow for polymorphic fields"
 name = "marshmallow-polyfield"
 optional = false
-python-versions = "*"
-version = "5.7"
+python-versions = ">=3.5"
+version = "5.8"
 
 [package.dependencies]
 marshmallow = ">=3.0.0b10"
-six = "*"
 
 [[package]]
 category = "dev"
@@ -272,12 +271,12 @@ python-versions = "*"
 version = "0.6.1"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "More routines for operating on iterables, beyond itertools"
 name = "more-itertools"
 optional = false
 python-versions = ">=3.5"
-version = "8.1.0"
+version = "8.2.0"
 
 [[package]]
 category = "main"
@@ -345,7 +344,7 @@ description = "Core utilities for Python packages"
 name = "packaging"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "20.0"
+version = "20.1"
 
 [package.dependencies]
 pyparsing = ">=2.0.2"
@@ -502,7 +501,7 @@ description = "pytest: simple powerful testing with Python"
 name = "pytest"
 optional = false
 python-versions = ">=3.5"
-version = "5.3.2"
+version = "5.3.5"
 
 [package.dependencies]
 atomicwrites = ">=1.0"
@@ -519,6 +518,7 @@ python = "<3.8"
 version = ">=0.12"
 
 [package.extras]
+checkqa-mypy = ["mypy (v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
@@ -563,7 +563,7 @@ description = "Software for developing quantum computing programs"
 name = "qiskit-terra"
 optional = false
 python-versions = ">=3.5"
-version = "0.11.1"
+version = "0.12.0"
 
 [package.dependencies]
 dill = ">=0.3"
@@ -581,6 +581,7 @@ python = ">=3.6"
 version = ">=2.2"
 
 [package.extras]
+crosstalk-pass = ["z3-solver (>=4.7)"]
 full-featured-simulators = ["qiskit-aer (>=0.1)"]
 visualization = ["matplotlib (>=2.1)", "ipywidgets (>=7.3.0)", "pydot", "pillow (>=4.2.1)", "pylatexenc (>=1.4)", "seaborn (>=0.9.0)"]
 
@@ -772,8 +773,8 @@ category = "main"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 name = "urllib3"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4"
-version = "1.25.7"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+version = "1.25.8"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
@@ -810,18 +811,15 @@ description = "Backport of pathlib-compatible object wrapper for zip files"
 marker = "python_version < \"3.8\""
 name = "zipp"
 optional = false
-python-versions = ">=2.7"
-version = "1.0.0"
-
-[package.dependencies]
-more-itertools = "*"
+python-versions = ">=3.6"
+version = "2.1.0"
 
 [package.extras]
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
-testing = ["pathlib2", "contextlib2", "unittest2"]
+testing = ["jaraco.itertools"]
 
 [metadata]
-content-hash = "4abc3c6f5ddd964ca8e4416073e2adb76d4b2cdfff01e44bbaed5477dd208aeb"
+content-hash = "555efac126daf1300d3bff223b276434c6fa8ccb4a0432a416538342cbf120a1"
 python-versions = ">=3.6.4,<3.9"
 
 [metadata.files]
@@ -935,16 +933,16 @@ imagesize = [
     {file = "imagesize-1.2.0.tar.gz", hash = "sha256:b1f6b5a4eab1f73479a50fb79fcf729514a900c341d8503d62a62dbc4127a2b1"},
 ]
 importlib-metadata = [
-    {file = "importlib_metadata-1.4.0-py2.py3-none-any.whl", hash = "sha256:bdd9b7c397c273bcc9a11d6629a38487cd07154fa255a467bf704cd2c258e359"},
-    {file = "importlib_metadata-1.4.0.tar.gz", hash = "sha256:f17c015735e1a88296994c0697ecea7e11db24290941983b08c9feb30921e6d8"},
+    {file = "importlib_metadata-1.5.0-py2.py3-none-any.whl", hash = "sha256:b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"},
+    {file = "importlib_metadata-1.5.0.tar.gz", hash = "sha256:06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302"},
 ]
 isort = [
     {file = "isort-4.3.21-py2.py3-none-any.whl", hash = "sha256:6e811fcb295968434526407adb8796944f1988c5b65e8139058f2014cbe100fd"},
     {file = "isort-4.3.21.tar.gz", hash = "sha256:54da7e92468955c4fceacd0c86bd0ec997b0e1ee80d97f67c35a78b719dccab1"},
 ]
 jinja2 = [
-    {file = "Jinja2-2.10.3-py2.py3-none-any.whl", hash = "sha256:74320bb91f31270f9551d46522e33af46a80c3d619f4a4bf42b3164d30b5911f"},
-    {file = "Jinja2-2.10.3.tar.gz", hash = "sha256:9fe95f19286cfefaa917656583d020be14e7859c6b0252588391e47db34527de"},
+    {file = "Jinja2-2.11.1-py2.py3-none-any.whl", hash = "sha256:b0eaf100007721b5c16c1fc1eecb87409464edc10469ddc9a22a27a99123be49"},
+    {file = "Jinja2-2.11.1.tar.gz", hash = "sha256:93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"},
 ]
 jsonschema = [
     {file = "jsonschema-3.2.0-py2.py3-none-any.whl", hash = "sha256:4e5b3cf8216f577bee9ce139cbe72eca3ea4f292ec60928ff24758ce626cd163"},
@@ -1004,19 +1002,20 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 marshmallow = [
-    {file = "marshmallow-3.3.0-py2.py3-none-any.whl", hash = "sha256:3e53dd9e9358977a3929e45cdbe4a671f9eff53a7d6a23f33ed3eab8c1890d8f"},
-    {file = "marshmallow-3.3.0.tar.gz", hash = "sha256:0ba81b6da4ae69eb229b74b3c741ff13fe04fb899824377b1aff5aaa1a9fd46e"},
+    {file = "marshmallow-3.4.0-py2.py3-none-any.whl", hash = "sha256:7669b944d6233b81f68739d5826f1176c3841cc31cf6b856841083b5a72f5ca9"},
+    {file = "marshmallow-3.4.0.tar.gz", hash = "sha256:c9d277f6092f32300395fb83d343be9f61b5e99d66d22bae1e5e7cd82608fee6"},
 ]
 marshmallow-polyfield = [
-    {file = "marshmallow-polyfield-5.7.tar.gz", hash = "sha256:963a01e80bca5cb4da42b8d2f7e6e90946257ae22d22ff2ed104a8a863eeb0c6"},
+    {file = "marshmallow-polyfield-5.8.tar.gz", hash = "sha256:1af6699f80be03766169a021860bdb8113641c329148bae4b4d5c485229be75c"},
+    {file = "marshmallow_polyfield-5.8-py3-none-any.whl", hash = "sha256:4499f7f30086bf1916f30701629e143c076c21f3351c148e490f06367880995d"},
 ]
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
 more-itertools = [
-    {file = "more-itertools-8.1.0.tar.gz", hash = "sha256:c468adec578380b6281a114cb8a5db34eb1116277da92d7c46f904f0b52d3288"},
-    {file = "more_itertools-8.1.0-py3-none-any.whl", hash = "sha256:1a2a32c72400d365000412fe08eb4a24ebee89997c18d3d147544f70f5403b39"},
+    {file = "more-itertools-8.2.0.tar.gz", hash = "sha256:b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"},
+    {file = "more_itertools-8.2.0-py3-none-any.whl", hash = "sha256:5dd8bcf33e5f9513ffa06d5ad33d78f31e1931ac9a18f33d37e77a180d393a7c"},
 ]
 mpmath = [
     {file = "mpmath-1.1.0.tar.gz", hash = "sha256:fc17abe05fbab3382b61a123c398508183406fa132e0223874578e20946499f6"},
@@ -1057,8 +1056,8 @@ numpy = [
     {file = "numpy-1.18.1.zip", hash = "sha256:b6ff59cee96b454516e47e7721098e6ceebef435e3e21ac2d6c3b8b02628eb77"},
 ]
 packaging = [
-    {file = "packaging-20.0-py2.py3-none-any.whl", hash = "sha256:aec3fdbb8bc9e4bb65f0634b9f551ced63983a529d6a8931817d52fdd0816ddb"},
-    {file = "packaging-20.0.tar.gz", hash = "sha256:fe1d8331dfa7cc0a883b49d75fc76380b2ab2734b220fbb87d774e4fd4b851f8"},
+    {file = "packaging-20.1-py2.py3-none-any.whl", hash = "sha256:170748228214b70b672c581a3dd610ee51f733018650740e98c7df862a583f73"},
+    {file = "packaging-20.1.tar.gz", hash = "sha256:e665345f9eef0c621aa0bf2f8d78cf6d21904eef16a93f020240b704a57f1334"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
@@ -1124,8 +1123,8 @@ pyrsistent = [
     {file = "pyrsistent-0.15.7.tar.gz", hash = "sha256:cdc7b5e3ed77bed61270a47d35434a30617b9becdf2478af76ad2c6ade307280"},
 ]
 pytest = [
-    {file = "pytest-5.3.2-py3-none-any.whl", hash = "sha256:e41d489ff43948babd0fad7ad5e49b8735d5d55e26628a58673c39ff61d95de4"},
-    {file = "pytest-5.3.2.tar.gz", hash = "sha256:6b571215b5a790f9b41f19f3531c53a45cf6bb8ef2988bc1ff9afb38270b25fa"},
+    {file = "pytest-5.3.5-py3-none-any.whl", hash = "sha256:ff615c761e25eb25df19edddc0b970302d2a9091fbce0e7213298d85fb61fef6"},
+    {file = "pytest-5.3.5.tar.gz", hash = "sha256:0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d"},
 ]
 pytz = [
     {file = "pytz-2019.3-py2.py3-none-any.whl", hash = "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d"},
@@ -1139,22 +1138,35 @@ qiskit-ibmq-provider = [
     {file = "qiskit-ibmq-provider-0.3.3.tar.gz", hash = "sha256:7da57c34a2d4779d4354369205bb92aad89f1d9ac5634b35e6ac6ef74afb532d"},
 ]
 qiskit-terra = [
-    {file = "qiskit-terra-0.11.1.tar.gz", hash = "sha256:6ab8a4c90ddc7414779025cb4f07c049bc1caca6df276c8bca5d356c3d079227"},
-    {file = "qiskit_terra-0.11.1-cp35-cp35m-macosx_10_6_intel.whl", hash = "sha256:5c04a0df0de921748735776082736f1ca1dccecd74c5676c2be8fde1497908ed"},
-    {file = "qiskit_terra-0.11.1-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:2e029dcbead0f81c773a7711c12ebeb106b846b77d8a65bc74519ade41b9215e"},
-    {file = "qiskit_terra-0.11.1-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:a899268258a3f251d41b228317a26612949c17250961a9f2ec86cb1a88bd50a7"},
-    {file = "qiskit_terra-0.11.1-cp35-cp35m-win32.whl", hash = "sha256:fd352250961c69782dcd250fb7862dddc2fb7f6dcbbdc4b55902fc8df93ddcd2"},
-    {file = "qiskit_terra-0.11.1-cp35-cp35m-win_amd64.whl", hash = "sha256:acfb0fe2a8ea80e1b9e1c20f5cf3677d4383229864002cfacf5ff11d2591eb33"},
-    {file = "qiskit_terra-0.11.1-cp36-cp36m-macosx_10_6_intel.whl", hash = "sha256:49b7a17eb120cf44f33dbdc35da85828fa2c9f3d537fead0521fb0d39c823945"},
-    {file = "qiskit_terra-0.11.1-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:e6c3a150dc05a145bc6eb742a8ba1f089cda90f72965c96857259a68f3febe96"},
-    {file = "qiskit_terra-0.11.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:e9afb386d4bdba82fa5cc7ef5936f3d9f109109c2b44288ba58e3b143fa102d8"},
-    {file = "qiskit_terra-0.11.1-cp36-cp36m-win32.whl", hash = "sha256:8639444cb051470a55ea777f828bf8e46f3821ff0ea3e386c44235773457c282"},
-    {file = "qiskit_terra-0.11.1-cp36-cp36m-win_amd64.whl", hash = "sha256:c69c4c1d75b941ca03e14057b1e4de27e5452f8a3f336a1913860d88cd730d2f"},
-    {file = "qiskit_terra-0.11.1-cp37-cp37m-macosx_10_6_intel.whl", hash = "sha256:a6937a594d867535a5658d524288edb85b282c17745433df3f571e4e62365e89"},
-    {file = "qiskit_terra-0.11.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:42d255fb10935500bcbfbd395cfc4f487ca2953b6b213cb86398faeb01cc1bd3"},
-    {file = "qiskit_terra-0.11.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:2cb09297fcb4b6610cff664ddc38d044daf87a00e02ff2230757e855b05d4be3"},
-    {file = "qiskit_terra-0.11.1-cp37-cp37m-win32.whl", hash = "sha256:eb57d756bc61c0359d2b451c0244915207f037596e2d0b51f5c02cba21c01d17"},
-    {file = "qiskit_terra-0.11.1-cp37-cp37m-win_amd64.whl", hash = "sha256:4f1b529205f2155ba2166e034c8cd2e48594eb8b1b6ae949a3d98489965d4d51"},
+    {file = "qiskit-terra-0.12.0.tar.gz", hash = "sha256:c4b35b3a79fe0b5f25821a855c5c2dc997fc3f269954865d69a8d1ae3c9ba347"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-macosx_10_9_intel.whl", hash = "sha256:87026fa609a188d656ae56efb750c68b9bb6556f7611c74df682ec25b46297f6"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:e68aa1013db05f215dfa2279fd38204d9a70584e21700c0e13f34739acf40420"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:04b78ec3a6a3de14b481b2cedc0634f063a1f8eb41f5aa6804595ccd3b0879c2"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-manylinux2010_i686.whl", hash = "sha256:8963fa10baf558257df408ca6a2062397db6e784add6539591a63f78fd4848fa"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-manylinux2010_x86_64.whl", hash = "sha256:51c72d86066be35f7fc84fe08954366cdd12f89080cce7a4769ad1d55a6555d8"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-win32.whl", hash = "sha256:10f600462d772198655292238fe39a5d54a92a87d9ec6260af36cfde70e7c387"},
+    {file = "qiskit_terra-0.12.0-cp35-cp35m-win_amd64.whl", hash = "sha256:821df8ce700ed648da61ab8649d9d6f37d5d6e8ed16cd7196cdec84143555d28"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-macosx_10_9_intel.whl", hash = "sha256:86f0921ac4725fd3987639249fe0d4644e56b42d0736fe4b67f208f7b15857de"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:6235c456c25cf53c818cc2bb159de5edf1ecdfbf7126101a894db26e293d4dec"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:996d3086a6744f41f74a5d1760f7a76d82983177cd26db65d5d8d034498a4fa4"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-manylinux2010_i686.whl", hash = "sha256:081ffdf92d9641959a19ba8efe47c05c83978dd1f0e44d01e03904aecc8af077"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:f31b5c996e5a17c0c8d4f1fc4831c3326b7061fd6a7f8af8bf20d6447c8c6a8a"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-win32.whl", hash = "sha256:b5c85a7cc1f69b968d0da2b286c2389a834b378b0a86efcfcb339b986eb6f9bc"},
+    {file = "qiskit_terra-0.12.0-cp36-cp36m-win_amd64.whl", hash = "sha256:eb50de02458c425e09a060b013adae4b6d78a5b4c926a1388e01ea66914ab777"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-macosx_10_9_intel.whl", hash = "sha256:eceb43fe5f42c6c3d0bb6fdfa9a5b7f4e4b7935508060d9bc17f0d6902074f02"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:947d49d8907b869037a7ae2d572e675829e8b60fd4e4e8c41957af1eb251d730"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:68ec8a1bbb39088882e111980b6c6cb7fb9ba8a8d572dac5710da92de71e7e61"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:01c08268d210e259f23d284aeceb1f9ee6d68e0006387b63af7f638998e26772"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:87384862ab079814ac17417d9e4d38eb797c8c65b3a29a799926d56b61c5fc1b"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-win32.whl", hash = "sha256:6233ab58f858f189873b7873669d73422ea850e1bf6c0eef86c4485ae3bdb815"},
+    {file = "qiskit_terra-0.12.0-cp37-cp37m-win_amd64.whl", hash = "sha256:f51d814aef318b7d824cacdcbfd604000b177f0059541a46be33d6638da75b1d"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:1639b10d9e8a8624dee59cc604392a6968b1b71fcd3d8874052b482d66fb5260"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-manylinux1_i686.whl", hash = "sha256:187a6d002677de8e9107af04bd9043ef4dfc3c7e5c504e76488edca2ec0da608"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:e8811335c98fba40052a803318f337abf602942b1b0db91dca4453f07af7def5"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:f8284703ebf505e4c980aa1610226a9bf58f427d787c72168f57d1b63f6311fe"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:573bf7d0aa5e78cba74d9e2c75ed92280861656174cd7b58010e0c2b5eec7524"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-win32.whl", hash = "sha256:478ed7a7247b8c0cfcac37da555edf06dc6b054d0e8ceabb9f248f524951996d"},
+    {file = "qiskit_terra-0.12.0-cp38-cp38-win_amd64.whl", hash = "sha256:38d393ebe6b2840125b55cd9f8758fcfea5ea3539a44188a15911981d3fcf3cb"},
 ]
 requests = [
     {file = "requests-2.22.0-py2.py3-none-any.whl", hash = "sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"},
@@ -1256,8 +1268,8 @@ typed-ast = [
     {file = "typed_ast-1.4.1.tar.gz", hash = "sha256:8c8aaad94455178e3187ab22c8b01a3837f8ee50e09cf31f1ba129eb293ec30b"},
 ]
 urllib3 = [
-    {file = "urllib3-1.25.7-py2.py3-none-any.whl", hash = "sha256:a8a318824cc77d1fd4b2bec2ded92646630d7fe8619497b142c84a9e6f5a7293"},
-    {file = "urllib3-1.25.7.tar.gz", hash = "sha256:f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"},
+    {file = "urllib3-1.25.8-py2.py3-none-any.whl", hash = "sha256:2f3db8b19923a873b3e5256dc9c2dedfa883e33d87c690d9c7913e1f40673cdc"},
+    {file = "urllib3-1.25.8.tar.gz", hash = "sha256:87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"},
 ]
 wcwidth = [
     {file = "wcwidth-0.1.8-py2.py3-none-any.whl", hash = "sha256:8fd29383f539be45b20bd4df0dc29c20ba48654a41e661925e612311e9f3c603"},
@@ -1290,6 +1302,6 @@ wrapt = [
     {file = "wrapt-1.11.2.tar.gz", hash = "sha256:565a021fd19419476b9362b05eeaa094178de64f8361e44468f9e9d7843901e1"},
 ]
 zipp = [
-    {file = "zipp-1.0.0-py2.py3-none-any.whl", hash = "sha256:8dda78f06bd1674bd8720df8a50bb47b6e1233c503a4eed8e7810686bde37656"},
-    {file = "zipp-1.0.0.tar.gz", hash = "sha256:d38fbe01bbf7a3593a32bc35a9c4453c32bc42b98c377f9bff7e9f8da157786c"},
+    {file = "zipp-2.1.0-py3-none-any.whl", hash = "sha256:ccc94ed0909b58ffe34430ea5451f07bc0c76467d7081619a454bf5c98b89e28"},
+    {file = "zipp-2.1.0.tar.gz", hash = "sha256:feae2f18633c32fc71f2de629bfb3bd3c9325cd4419642b1f1da42ee488d9b98"},
 ]
