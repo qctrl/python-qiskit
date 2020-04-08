@@ -80,8 +80,8 @@ def _create_test_sequence(sequence_scheme, pre_post_rotation):
     return sequence
 
 
-def _check_circuit_unitary(pre_post_rotation, multiplier, algorithm):
-    """Check the unitary of a dynamic decoupling operation
+def _check_circuit_unitary(pre_post_rotation, algorithm):
+    """Checks that the unitary of a dynamic decoupling operation is the identity
     """
 
     backend = 'unitary_simulator'
@@ -103,10 +103,7 @@ def _check_circuit_unitary(pre_post_rotation, multiplier, algorithm):
         result = job.result()
         unitary = result.get_unitary(quantum_circuit)
 
-        assert np.allclose(np.array([[1, 0], [0, 1]]),
-                           np.abs(
-                               np.dot(np.linalg.inv(multiplier),
-                                      np.dot(unitary, np.linalg.inv(multiplier)))))
+        assert np.isclose(np.abs(np.trace(unitary)), 2.)
 
 
 def test_identity_operation():
@@ -114,17 +111,13 @@ def test_identity_operation():
     """Tests if the Dynamic Decoupling Sequence gives rise to Identity
     operation in Qiskit
     """
-    _multiplier = np.array([[1, 0], [0, 1]])
-    _check_circuit_unitary(False, _multiplier, 'instant unitary')
+    _check_circuit_unitary(False, 'instant unitary')
 
-    _multiplier = (1. / np.power(2, 0.5)) * np.array([[1, -1j], [-1j, 1]], dtype='complex')
-    _check_circuit_unitary(True, _multiplier, 'instant unitary')
+    _check_circuit_unitary(True, 'instant unitary')
 
-    _multiplier = np.array([[1, 0], [0, 1]])
-    _check_circuit_unitary(False, _multiplier, 'fixed duration unitary')
+    _check_circuit_unitary(False, 'fixed duration unitary')
 
-    _multiplier = (1. / np.power(2, 0.5)) * np.array([[1, -1j], [-1j, 1]], dtype='complex')
-    _check_circuit_unitary(True, _multiplier, 'fixed duration unitary')
+    _check_circuit_unitary(True, 'fixed duration unitary')
 
 
 if __name__ == '__main__':
