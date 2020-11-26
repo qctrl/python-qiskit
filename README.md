@@ -1,4 +1,5 @@
-# Q-CTRL Qiskit Adapter
+# Q-CTRL Qiskit adapter
+
 [![Actions Status](https://github.com/qctrl/python-qiskit/workflows/Push%20workflow/badge.svg)](https://github.com/qctrl/python-qiskit/actions?query=workflow%3A"Push+workflow")
 [![Actions Status](https://github.com/qctrl/python-qiskit/workflows/Release%20workflow/badge.svg)](https://github.com/qctrl/python-qiskit/actions?query=workflow%3A"Release+workflow")
 
