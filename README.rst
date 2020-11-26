@@ -1,5 +1,5 @@
 
-Q-CTRL Qiskit Adapter
+Q-CTRL Qiskit adapter
 =====================
 
 
