@@ -9,15 +9,6 @@ open literature and defined in Q-CTRL Open Controls on IBM Quantum hardware.
 
 Anyone interested in quantum control is welcome to contribute to this project.
 
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [License](#license)
-
 ## Installation
 
 Q-CTRL Qiskit Adapter can be installed through `pip` or from source. We recommend
