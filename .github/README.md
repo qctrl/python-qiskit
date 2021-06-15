@@ -84,7 +84,7 @@ pytest
 
 ## Usage
 
-See the [Jupyter notebooks](examples).
+See the [Jupyter notebooks](../examples).
 
 ## Contributing
 
@@ -123,4 +123,4 @@ See
 
 ## License
 
-See [LICENSE](LICENSE).
+See [LICENSE](../LICENSE).
