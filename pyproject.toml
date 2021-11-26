@@ -6,9 +6,9 @@ license = "Apache-2.0"
 authors = ["Q-CTRL <support@q-ctrl.com>"]
 readme = "README.md"
 keywords = [
-    "quantum", 
-    "computing", 
-    "open source", 
+    "quantum",
+    "computing",
+    "open source",
     "engineering",
     "qiskit"
 ]
@@ -33,13 +33,13 @@ packages = [
 ]
 
 [tool.poetry.dependencies]  # https://poetry.eustace.io/docs/versions
-python = ">=3.6.4,<3.9"
+python = ">=3.7,<3.9"
 numpy = "^1.16"
 scipy = "^1.3"
 toml = "^0.10.0"
 qiskit-ibmq-provider = "^0.3.3"
 qiskit-terra = "^0.12.0"
-qctrl-open-controls = "^4.3.0"
+qctrl-open-controls = "^8.5.1"
 
 
 [tool.poetry.dev-dependencies]
@@ -49,7 +49,12 @@ pylint = "*"
 pylint_runner = "*"
 sphinx = "^2.2.0"
 nbval = "^0.9.5"
-qctrl-visualizer = "^2.1.0"
+qctrl-visualizer = "^2.12.1"
+isort = "^5.7.0"
+
+[tool.isort]
+profile = "black"
+force_grid_wrap = "2"
 
 [tool.dephell.main]
 from = {format = "poetry", path = "pyproject.toml"}
@@ -70,4 +75,3 @@ build-backend = "poetry.masonry.api"
 #            (__)\       )\/\
 #                ||----w |
 #                ||     ||
-
