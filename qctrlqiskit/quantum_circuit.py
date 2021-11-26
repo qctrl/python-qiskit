@@ -13,31 +13,28 @@
 # limitations under the License.
 
 """
-======================
 qiskit.quantum_circuit
-======================
 """
 
 import numpy as np
-
-from qiskit import (
-    QuantumRegister, ClassicalRegister, QuantumCircuit)
+from qctrlopencontrols import DynamicDecouplingSequence
+from qctrlopencontrols.exceptions import ArgumentsValueError
+from qiskit import ClassicalRegister, QuantumCircuit, QuantumRegister
 from qiskit.qasm import pi
 
-from qctrlopencontrols import DynamicDecouplingSequence
-
-from qctrlopencontrols.globals import (FIX_DURATION_UNITARY, INSTANT_UNITARY)
-from qctrlopencontrols.exceptions.exceptions import ArgumentsValueError
+FIX_DURATION_UNITARY = "fixed duration unitary"
+INSTANT_UNITARY = "instant unitary"
 
 
 def convert_dds_to_qiskit_quantum_circuit(
-        dynamic_decoupling_sequence,
-        target_qubits=None,
-        gate_time=0.1,
-        add_measurement=True,
-        algorithm=INSTANT_UNITARY,
-        quantum_registers=None,
-        circuit_name=None):
+    dynamic_decoupling_sequence,
+    target_qubits=None,
+    gate_time=0.1,
+    add_measurement=True,
+    algorithm=INSTANT_UNITARY,
+    quantum_registers=None,
+    circuit_name=None,
+):
     """Converts a Dynamic Decoupling Sequence into QuantumCircuit
     as defined in Qiskit
 
@@ -99,39 +96,50 @@ def convert_dds_to_qiskit_quantum_circuit(
     """
 
     if dynamic_decoupling_sequence is None:
-        raise ArgumentsValueError('No dynamic decoupling sequence provided.',
-                                  {'dynamic_decoupling_sequence': dynamic_decoupling_sequence})
+        raise ArgumentsValueError(
+            "No dynamic decoupling sequence provided.",
+            {"dynamic_decoupling_sequence": dynamic_decoupling_sequence},
+        )
 
     if not isinstance(dynamic_decoupling_sequence, DynamicDecouplingSequence):
-        raise ArgumentsValueError('Dynamical decoupling sequence is not recognized.'
-                                  'Expected DynamicDecouplingSequence instance',
-                                  {'type(dynamic_decoupling_sequence)':
-                                       type(dynamic_decoupling_sequence)})
+        raise ArgumentsValueError(
+            "Dynamical decoupling sequence is not recognized."
+            "Expected DynamicDecouplingSequence instance",
+            {"type(dynamic_decoupling_sequence)": type(dynamic_decoupling_sequence)},
+        )
 
     target_qubits = target_qubits or [0]
 
     if gate_time <= 0:
         raise ArgumentsValueError(
-            'Time delay of identity gate must be greater than zero.',
-            {'gate_time': gate_time})
+            "Time delay of identity gate must be greater than zero.",
+            {"gate_time": gate_time},
+        )
 
     if np.any(target_qubits) < 0:
         raise ArgumentsValueError(
-            'Every target qubits index must be non-negative.',
-            {'target_qubits': target_qubits})
+            "Every target qubits index must be non-negative.",
+            {"target_qubits": target_qubits},
+        )
 
     if algorithm not in [FIX_DURATION_UNITARY, INSTANT_UNITARY]:
-        raise ArgumentsValueError('Algorithm must be one of {} or {}'.format(
-            INSTANT_UNITARY, FIX_DURATION_UNITARY), {'algorithm': algorithm})
+        raise ArgumentsValueError(
+            f"Algorithm must be one of {INSTANT_UNITARY} or {FIX_DURATION_UNITARY}",
+            {"algorithm": algorithm},
+        )
 
     if quantum_registers is not None:
-        if (max(target_qubits)+1) > len(quantum_registers):
-            raise ArgumentsValueError('Target qubit is not present in quantum_registers',
-                                      {'target_qubits': target_qubits,
-                                       'size(quantum_registers)': len(quantum_registers)},
-                                      extras={'max(target_qubits)': max(target_qubits)})
+        if (max(target_qubits) + 1) > len(quantum_registers):
+            raise ArgumentsValueError(
+                "Target qubit is not present in quantum_registers",
+                {
+                    "target_qubits": target_qubits,
+                    "size(quantum_registers)": len(quantum_registers),
+                },
+                extras={"max(target_qubits)": max(target_qubits)},
+            )
     else:
-        quantum_registers = QuantumRegister(max(target_qubits)+1)
+        quantum_registers = QuantumRegister(max(target_qubits) + 1)
 
     classical_registers = None
     if add_measurement:
@@ -143,7 +151,7 @@ def convert_dds_to_qiskit_quantum_circuit(
     if circuit_name is not None:
         quantum_circuit.name = circuit_name
 
-    unitary_time = 0.
+    unitary_time = 0.0
     if algorithm == FIX_DURATION_UNITARY:
         unitary_time = gate_time
 
@@ -155,8 +163,11 @@ def convert_dds_to_qiskit_quantum_circuit(
 
     time_covered = 0
     for offset, rabi_rotation, azimuthal_angle, detuning_rotation in zip(
-                list(offsets), list(rabi_rotations),
-                list(azimuthal_angles), list(detuning_rotations)):
+        list(offsets),
+        list(rabi_rotations),
+        list(azimuthal_angles),
+        list(detuning_rotations),
+    ):
 
         offset_distance = offset - time_covered
 
@@ -168,13 +179,20 @@ def convert_dds_to_qiskit_quantum_circuit(
                 "Offsets cannot be placed properly. Spacing between the rotations"
                 "is smaller than the time required to perform the rotation. Provide"
                 "a longer dynamic decoupling sequence or shorted gate time.",
-                {'dynamic_decoupling_sequence': dynamic_decoupling_sequence,
-                 'gate_time': gate_time})
+                {
+                    "dynamic_decoupling_sequence": dynamic_decoupling_sequence,
+                    "gate_time": gate_time,
+                },
+            )
 
-        while (time_covered+gate_time) <= offset:
+        while (time_covered + gate_time) <= offset:
             for qubit in target_qubits:
-                quantum_circuit.iden(quantum_registers[qubit])  # pylint: disable=no-member
-                quantum_circuit.barrier(quantum_registers[qubit])  # pylint: disable=no-member
+                quantum_circuit.iden(  # pylint: disable=no-member
+                    quantum_registers[qubit]
+                )
+                quantum_circuit.barrier(  # pylint: disable=no-member
+                    quantum_registers[qubit]
+                )
             time_covered += gate_time
 
         x_rotation = rabi_rotation * np.cos(azimuthal_angle)
@@ -186,41 +204,53 @@ def convert_dds_to_qiskit_quantum_circuit(
         nonzero_pulse_counts = 3 - np.sum(zero_pulses)
         if nonzero_pulse_counts > 1:
             raise ArgumentsValueError(
-                'Open Controls support a sequence with one '
-                'valid rotation at any offset. Found a sequence '
-                'with multiple rotation operations at an offset.',
-                {'dynamic_decoupling_sequence': dynamic_decoupling_sequence},
-                extras={'offset': offset,
-                        'rabi_rotation': rabi_rotation,
-                        'azimuthal_angle': azimuthal_angle,
-                        'detuning_rotation': detuning_rotation}
+                "Open Controls support a sequence with one "
+                "valid rotation at any offset. Found a sequence "
+                "with multiple rotation operations at an offset.",
+                {"dynamic_decoupling_sequence": dynamic_decoupling_sequence},
+                extras={
+                    "offset": offset,
+                    "rabi_rotation": rabi_rotation,
+                    "azimuthal_angle": azimuthal_angle,
+                    "detuning_rotation": detuning_rotation,
+                },
             )
 
         for qubit in target_qubits:
             if nonzero_pulse_counts == 0:
                 quantum_circuit.u3(
-                    0., 0., 0.,  # pylint: disable=no-member
-                    quantum_registers[qubit])
+                    0.0, 0.0, 0.0, quantum_registers[qubit]  # pylint: disable=no-member
+                )
             else:
                 if not np.isclose(rotations[0], 0.0):
                     quantum_circuit.u3(
-                        rotations[0], -pi / 2, pi / 2,  # pylint: disable=no-member
-                        quantum_registers[qubit])
+                        rotations[0],
+                        -pi / 2,
+                        pi / 2,  # pylint: disable=no-member
+                        quantum_registers[qubit],
+                    )
                 elif not np.isclose(rotations[1], 0.0):
                     quantum_circuit.u3(
-                        rotations[1], 0., 0.,  # pylint: disable=no-member
-                        quantum_registers[qubit])
-                elif not np.isclose(rotations[2], 0.):
+                        rotations[1],
+                        0.0,
+                        0.0,  # pylint: disable=no-member
+                        quantum_registers[qubit],
+                    )
+                elif not np.isclose(rotations[2], 0.0):
                     quantum_circuit.u1(
                         rotations[2],  # pylint: disable=no-member
-                        quantum_registers[qubit])
-            quantum_circuit.barrier(quantum_registers[qubit])  # pylint: disable=no-member
+                        quantum_registers[qubit],
+                    )
+            quantum_circuit.barrier(
+                quantum_registers[qubit]
+            )  # pylint: disable=no-member
 
         time_covered = offset + unitary_time
 
     if add_measurement:
         for q_index, qubit in enumerate(target_qubits):
-            quantum_circuit.measure(quantum_registers[qubit],   #pylint: disable=no-member
-                                    classical_registers[q_index])
+            quantum_circuit.measure(  # pylint: disable=no-member
+                quantum_registers[qubit], classical_registers[q_index]
+            )
 
     return quantum_circuit
