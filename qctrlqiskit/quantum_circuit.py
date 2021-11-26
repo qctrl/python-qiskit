@@ -191,7 +191,7 @@ def convert_dds_to_qiskit_quantum_circuit(
 
         while (time_covered + gate_time) <= offset:
             for qubit in target_qubits:
-                quantum_circuit.id(  # pylint: disable=no-member
+                quantum_circuit.iden(  # pylint: disable=no-member
                     quantum_registers[qubit]
                 )
                 quantum_circuit.barrier(  # pylint: disable=no-member
