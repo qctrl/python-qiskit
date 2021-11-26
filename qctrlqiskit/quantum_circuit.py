@@ -19,7 +19,11 @@ qiskit.quantum_circuit
 import numpy as np
 from qctrlopencontrols import DynamicDecouplingSequence
 from qctrlopencontrols.exceptions import ArgumentsValueError
-from qiskit import ClassicalRegister, QuantumCircuit, QuantumRegister
+from qiskit import (
+    ClassicalRegister,
+    QuantumCircuit,
+    QuantumRegister,
+)
 from qiskit.qasm import pi
 
 FIX_DURATION_UNITARY = "fixed duration unitary"

@@ -17,13 +17,23 @@ Tests conversion to Qiskit Circuit
 """
 
 import numpy as np
-from qctrlopencontrols import (new_carr_purcell_sequence, new_cpmg_sequence,
-                               new_periodic_sequence, new_quadratic_sequence,
-                               new_spin_echo_sequence, new_uhrig_sequence,
-                               new_walsh_sequence, new_x_concatenated_sequence,
-                               new_xy_concatenated_sequence)
+from qctrlopencontrols import (
+    new_carr_purcell_sequence,
+    new_cpmg_sequence,
+    new_periodic_sequence,
+    new_quadratic_sequence,
+    new_spin_echo_sequence,
+    new_uhrig_sequence,
+    new_walsh_sequence,
+    new_x_concatenated_sequence,
+    new_xy_concatenated_sequence,
+)
+from qiskit import (
+    BasicAer,
+    execute,
+)
+
 from qctrlqiskit import convert_dds_to_qiskit_quantum_circuit
-from qiskit import BasicAer, execute
 
 _callable = {
     "Spin echo": new_spin_echo_sequence,
