@@ -19,7 +19,7 @@ jobs:
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
         ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}        
-        ./ci docker run qctrl/python-build:3.7 /scripts/housekeeping.sh
+        ./ci docker run qctrl/ci-images::python-3.7-ci /scripts/housekeeping.sh
 
   linting:
     runs-on: ubuntu-latest
@@ -29,16 +29,16 @@ jobs:
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
         ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}
-        ./ci docker run qctrl/python-build:3.7 /scripts/install-python-dependencies.sh
+        ./ci docker run qctrl/ci-images::python-3.7-ci /scripts/install-python-dependencies.sh
     - name: Run Pylint
       run: |
-        ./ci docker run qctrl/python-build:3.7 poetry run pylint_runner || true
+        ./ci docker run qctrl/ci-images::python-3.7-ci poetry run pylint_runner || true
     - name: Run Pylama
       run: |
-        ./ci docker run qctrl/python-build:3.7 poetry run pylama || true
+        ./ci docker run qctrl/ci-images::python-3.7-ci poetry run pylama || true
     - name: Run Markdownlint
       run: |
-        ./ci docker run qctrl/python-build:3.7 mdl -- -ig . || true
+        ./ci docker run qctrl/ci-images::python-3.7-ci mdl -- -ig . || true
 
   pytest:
     runs-on: ubuntu-latest
@@ -51,10 +51,10 @@ jobs:
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
         ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}
-        ./ci docker run qctrl/python-build:${{ matrix.python }} /scripts/install-python-dependencies.sh
+        ./ci docker run qctrl/ci-images:python-${{ matrix.python }}-ci /scripts/install-python-dependencies.sh
     - name: Run Pytest
       run: |
-        ./ci docker run qctrl/python-build:${{ matrix.python }} /scripts/pytest.sh
+        ./ci docker run qctrl/ci-images:python-${{ matrix.python }}-ci /scripts/pytest.sh
 
   publish_internally:
     runs-on: ubuntu-latest
@@ -66,4 +66,4 @@ jobs:
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
         ./ci vault login -r ${{ secrets.VAULT_ROLE_ID }} -s ${{ secrets.VAULT_SECRET_ID }}
-        ./ci docker run qctrl/python-build:3.7 /scripts/publish-dev-version.sh
+        ./ci docker run qctrl/ci-images::python-3.7-ci /scripts/publish-dev-version.sh
