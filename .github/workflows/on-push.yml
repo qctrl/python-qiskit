@@ -12,7 +12,7 @@ jobs:
   housekeeping:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Perform housekeeping checks
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -24,7 +24,7 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Python dependencies
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
@@ -46,7 +46,7 @@ jobs:
       matrix:
         python: [3.7, 3.8]
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install Python dependencies
       run: |
         source <(curl -sL http://ci.q-ctrl.com)
@@ -59,7 +59,7 @@ jobs:
   publish_internally:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Publish development version
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
