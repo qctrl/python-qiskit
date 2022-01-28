@@ -37,7 +37,7 @@ package_info = parsed['tool']['poetry']
 project = package_info['description']
 author = ", ".join(package_info['authors'])
 release = package_info['version']
-copyright = '2019, Q-CTRL <support@q-ctrl.com>'
+copyright = f"{datetime.datetime.now().year}, Q-CTRL <support@q-ctrl.com>"
 
 # -- General configuration ---------------------------------------------------
 
