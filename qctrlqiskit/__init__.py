@@ -1,4 +1,4 @@
-# Copyright 2021 Q-CTRL
+# Copyright 2022 Q-CTRL
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,4 +22,4 @@ __version__ = "0.0.4"
 
 from .quantum_circuit import convert_dds_to_qiskit_quantum_circuit
 
-__all__ = ['convert_dds_to_qiskit_quantum_circuit']
+__all__ = ["convert_dds_to_qiskit_quantum_circuit"]
